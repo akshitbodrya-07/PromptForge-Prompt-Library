@@ -33,33 +33,53 @@ function Generate() {
     
   return (
     <div className='w-3/4 mx-auto px-6 py-10 '>
-        <h2 className='text-3xl font-bold text-gray-800 mb-6'>✨ Generate a Prompt</h2>
+        <h2 className='text-2xl font-bold mb-6' style={{color: 'var(--text)'}}>✨ Generate a Prompt</h2>
 
         {/* Main Box */}
-        <div className='border border-gray-200 rounded-2xl shadow-md overflow-hidden mt-6'>
+        <div className='rounded-2xl overflow-hidden mt-6'
+            style={{
+                border: '1px solid var(--border)',
+                backgroundColor: 'var(--surface)',
+            }}
+        >
 
             {/* Header — dropdowns + button */}
-            <div className='flex items-center gap-3 p-4 bg-gray-50 border-b border-gray-200'>
+            <div className='flex items-center gap-3 p-4'
+                style={{
+                    backgroundColor: 'var(--card)',
+                    borderBottom: '1px solid var(--border)',
+                }}
+            >
                 <TopicSelect value={topic} onChange={setTopic} />
                 <ToneSelect value={tone} onChange={setTone}/>
                 <LengthSelect value={length} onChange={setLength}/>
                 <WordStyleSelect value={wordStyle} onChange={setWordStyle}/>
 
-                <button className='ml-auto flex-shrink-0 px-4 py-2 bg-black text-white rounded-xl text-sm font-medium hover:bg-gray-800 transition-all whitespace-nowrap'
+                <button className='ml-auto flex-shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition-all whitespace-nowrap btn-press'
                         onClick={handleGenerate}
+                        style={{
+                            background: 'linear-gradient(135deg, var(--accent), var(--accent2))',
+                            color: '#ffffff',
+                        }}
                 >
                     Generate
                 </button>
             </div>
 
             {/* Body — output */}
-            <div className='p-6 min-h-48'>
+            <div className='p-6 min-h-48'
+                style={{ backgroundColor: 'var(--surface)' }}
+            >
                 {output ? (
-                    <p className="italic text-gray-700 leading-relaxed">
+                    <p className="italic leading-relaxed"
+                        style={{color: 'var(--muted)'}}
+                    >
                         "{output}"
                     </p>
                 ) : (
-                    <p className="text-gray-400 italic">
+                    <p className="italic"
+                        style={{color: 'var(--text-secondary)'}}
+                    >
                         Select options above and click Generate...
                     </p>
                 )}
@@ -69,7 +89,12 @@ function Generate() {
                 <div className='flex gap-3 mt-6 justify-end px-2 py-2'>
                     <button
                         onClick={handleGenerate}
-                        className='flex items-center gap-1 text-xs px-3 py-2 bg-gray-100 hover:bg-black hover:text-white rounded-full transition-all'
+                        className='flex items-center gap-1 text-xs px-3 py-2 rounded-full transition-all btn-press'
+                        style={{
+                            backgroundColor: 'var(--card)',
+                            border: '1px solid var(--border)',
+                            color: 'var(--muted)',
+                        }}
                     >
                         <RefreshCw size={16}/> Regenerate
                     </button>
@@ -84,7 +109,12 @@ function Generate() {
                                 alert("Prompt Saved!")
                             }
                         }}
-                        className="flex items-center gap-1 text-xs px-3 py-2 bg-gray-100 hover:bg-black hover:text-white rounded-full transition-all"
+                        className="flex items-center gap-1 text-xs px-3 py-2 rounded-full transition-all btn-press"
+                        style={{
+                            backgroundColor: 'var(--card)',
+                            border: '1px solid var(--border)',
+                            color: 'var(--muted)',
+                        }}
                     >
                         <Bookmark size={16}/> Save
                     </button>
@@ -96,7 +126,12 @@ function Generate() {
                             setLength("")
                             setWordStyle("")
                         }}
-                        className="flex items-center gap-1 text-xs px-3 py-2 bg-gray-100 hover:bg-black hover:text-white rounded-full transition-all"
+                        className="flex items-center gap-1 text-xs px-3 py-2 rounded-full transition-all btn-press"
+                        style={{
+                            backgroundColor: 'var(--card)',
+                            border: '1px solid var(--border)',
+                            color: 'var(--muted)',
+                        }}
                     >
                         <RotateCcw size={16}/> Reset
                     </button>

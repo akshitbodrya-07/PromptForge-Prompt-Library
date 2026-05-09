@@ -23,13 +23,18 @@ function Home() {
             
             {/* Search Bar */}
             <div className='mb-8'>
-                <h2 className='text-2xl text-center font-bold text-gray-800 mb-4'> Find the perfect prompt 🔍</h2>
+                <h2 className='text-2xl text-center font-bold text-white-800 mb-4'> Find the perfect prompt 🔍</h2>
                 <input
                     type='text'
                     placeholder='Search prompts...'
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className='w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:border-black'
+                    className='w-full px-4 py-3 rounded-xl outline-none'
+                    style={{
+                        backgroundColor: 'var(--surface)',
+                        border: '1px solid var(--border)',
+                        color: 'var(--text)'
+                    }}  
                 />
             </div>
 
@@ -75,7 +80,9 @@ function Home() {
                 <div className="mt-12 mb-8">
                     <div className="text-center mb-8">
                         <span className="text-6xl">{selectedCategory.emoji}</span>
-                        <h3 className="text-3xl font-bold text-gray-800 mt-3">
+                        <h3 className="text-3xl font-bold mt-3"
+                            style={{color: 'var(--text)'}}
+                        >
                             {selectedCategory.category}
                         </h3>
                     </div>
@@ -84,7 +91,14 @@ function Home() {
                             <button
                                 key={index}
                                 onClick={() => setSelectedSubCategory(sub)}
-                                className="px-4 py-2 bg-black text-white rounded-full text-sm hover:bg-gray-800 transition-all"
+                                className="px-4 py-2 rounded-full text-sm transition-all"
+                                style={{
+                                    backgroundColor: selectedCategory?.name === sub.name
+                                    ? 'var(--accent)' : 'var(--card)',
+                                    color: selectedCategory?.name === sub.name
+                                    ? '#ffffff' : 'var(--muted)',
+                                    border: '1px solid var(--border)', 
+                                }}
                             >
                                 {sub.name}
                             </button>
@@ -99,24 +113,38 @@ function Home() {
 
                     {/* Subcategory Header */}
                     <div className="mb-8">
-                        <h3 className="text-2xl font-bold text-gray-800">
+                        <h3 className="text-2xl font-bold mt-0"
+                            style={{ color: 'var(--accent)' }}
+                        >
                             {selectedSubCategory.name}
                         </h3>
-                        <p className="text-grey-500 mt-2">
+                        <p className="mt-2"
+                            style={{color: 'var(--muted)'}}
+                        >
                             {selectedSubCategory.description}
                         </p>
                     </div>
 
                     {/* Prompt Cards Grid */}
-                    <div className="grid grind-cols-2 gap-6">
+                    <div className="grid grid-cols-2 gap-6">
                         {selectedSubCategory.prompts.map((prompt,index) => (
                             <div key={index} 
-                                className='relative bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all'>
+                                className='relative rounded-2xl p-6 transition-all card-hover'
+                                style={{
+                                    backgroundColor: 'var(--card)',
+                                    border: '1px solid var(--border)',
+                                }}
+                                >
 
                                 {/* Copy and Save buttons */}
                                 <div className='absolute top-4 right-4 flex gap-2'>
                                     <button onClick={() => navigator.clipboard.writeText(prompt)} 
-                                            className="text-xs px-3 py-1 bg-gray-100 hover:bg-black hover:text-white rounded-full transition-all">
+                                            className="text-xs px-3 py-1 rounded-full transition-all btn-press"
+                                            style={{
+                                                backgroundColor: 'var(--accent)',
+                                                color: '#ffffff'
+                                            }}
+                                            >
                                         Copy
                                     </button>
                                     <button 
@@ -132,13 +160,20 @@ function Home() {
 
 
                                     }}
-                                    className="text-xs px-3 py-1 bg-gray-100 hover:bg-black hover:text-white rounded-full transition-all">
+                                    className="text-xs px-3 py-1 rounded-full transition-all btn-press"
+                                    style={{
+                                        backgroundColor: 'var(--accent2)',
+                                        color: '#ffffff'
+                                    }}
+                                    >
                                         Save
                                     </button>
                                 </div>
 
                                 {/* Prompt Text */}
-                                <p className='italic text-gray-700 leading-relaxed mt-6'>"{prompt}"</p>
+                                <p className='italic leading-relaxed mt-6'
+                                    style={{color: 'var(--muted)'}}
+                                >"{prompt}"</p>
 
                             </div>
                         ))}

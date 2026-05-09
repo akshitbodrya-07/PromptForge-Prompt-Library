@@ -14,3 +14,41 @@
 .animate-scroll:hover {
   animation-play-state: paused;
 }
+
+.dark-theme {
+  --bg: #0f0a1e;
+  --surface: #1a1030;
+  --card: #1e0f40;
+  --border: #4c1d95;
+  --accent: #7c3aed;
+  --accent2: #06b6d4;
+  --text: #f0f0f0;
+  --muted: #c4b5fd;
+  --text-secondary: #8888aa;
+  background-color: #0f0a1e;
+  color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.light-theme {
+  --bg: #ffffff;
+  --surface: #f5f3ff;
+  --card: #ede9fe;
+  --border: #ddd6fe;
+  --accent: #7c3aed;
+  --accent2: #06b6d4;
+  --text: #0f0a1e;
+  --muted: #6d28d9;
+  --text-secondary: #4c1d95;
+  background-color: #ffffff;
+  color: #0f0a1e;
+  min-height: 100vh;
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+}
