@@ -21,9 +21,28 @@ function Home() {
     return (
         <div className='max-w-4xl mx-auto px-6 py-10'>
             
-            {/* Search Bar */}
-            <div className='mb-8'>
-                <h2 className='text-2xl text-center font-bold text-white-800 mb-4'> Find the perfect prompt 🔍</h2>
+            <div className="mb-12 text-center">
+                {/* Hero Text */}
+                <div className="mb-8">
+                    <h1 className="text-5xl font-bold mb-4"
+                    style={{ color: 'var(--text)' }}
+                    >
+                    Find the perfect
+                    <span style={{ 
+                        background: 'linear-gradient(135deg, var(--accent), var(--accent2))',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                    }}>
+                        {" "}AI Prompt
+                    </span>
+                    </h1>
+                    <p className="text-lg mb-6"
+                    style={{ color: 'var(--muted)' }}
+                    >
+                    Discover, generate and save professional prompts for any AI platform.
+                    Built for internship seekers, creators and learners.
+                    </p>
+                </div>
                 <input
                     type='text'
                     placeholder='Search prompts...'
@@ -74,6 +93,12 @@ function Home() {
                     />
                 ))}
             </div>
+
+            <p className="text-center mt-6 text-sm"
+                style={{ color: 'var(--text-secondary)' }}
+            >
+                👆 Click a category to explore prompts
+            </p>
 
             {/* Subcategories */}
             {selectedCategory && (
