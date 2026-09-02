@@ -32,20 +32,20 @@ function Generate() {
     }
     
   return (
-    <div className='w-3/4 mx-auto px-6 py-10 '>
-        <h2 className='text-3xl font-bold text-gray-800 mb-6'>✨ Generate a Prompt</h2>
+    <div className='w-full lg:w-3/4 mx-auto px-4 sm:px-6 py-6 sm:py-10'>
+        <h2 className='text-2xl sm:text-3xl font-bold text-gray-800 mb-6'>✨ Generate a Prompt</h2>
 
         {/* Main Box */}
         <div className='border border-gray-200 rounded-2xl shadow-md overflow-hidden mt-6'>
 
             {/* Header — dropdowns + button */}
-            <div className='flex items-center gap-3 p-4 bg-gray-50 border-b border-gray-200'>
+            <div className='flex flex-wrap items-center gap-3 p-4 bg-gray-50 border-b border-gray-200'>
                 <TopicSelect value={topic} onChange={setTopic} />
                 <ToneSelect value={tone} onChange={setTone}/>
                 <LengthSelect value={length} onChange={setLength}/>
                 <WordStyleSelect value={wordStyle} onChange={setWordStyle}/>
 
-                <button className='ml-auto flex-shrink-0 px-4 py-2 bg-black text-white rounded-xl text-sm font-medium hover:bg-gray-800 transition-all whitespace-nowrap'
+                <button className='w-full sm:w-auto sm:ml-auto flex-shrink-0 px-4 py-2 bg-black text-white rounded-xl text-sm font-medium hover:bg-gray-800 transition-all whitespace-nowrap'
                         onClick={handleGenerate}
                 >
                     Generate
@@ -66,7 +66,7 @@ function Generate() {
             </div>
 
             {output && (
-                <div className='flex gap-3 mt-6 justify-end px-2 py-2'>
+                <div className='flex flex-wrap gap-3 mt-6 justify-end px-2 py-2'>
                     <button
                         onClick={handleGenerate}
                         className='flex items-center gap-1 text-xs px-3 py-2 bg-gray-100 hover:bg-black hover:text-white rounded-full transition-all'

@@ -19,11 +19,11 @@ function Home() {
     )
 
     return (
-        <div className='max-w-4xl mx-auto px-6 py-10'>
-            
+        <div className='max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10'>
+
             {/* Search Bar */}
             <div className='mb-8'>
-                <h2 className='text-2xl text-center font-bold text-gray-800 mb-4'> Find the perfect prompt 🔍</h2>
+                <h2 className='text-xl sm:text-2xl text-center font-bold text-gray-800 mb-4'> Find the perfect prompt 🔍</h2>
                 <input
                     type='text'
                     placeholder='Search prompts...'
@@ -59,7 +59,7 @@ function Home() {
             )}
 
             {/* Category Cards */}
-            <div className='grid grid-cols-5 gap-4'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4'>
                 {prompts.map((item) => (
                     <CategoryCard
                     key={item.id}
@@ -108,13 +108,13 @@ function Home() {
                     </div>
 
                     {/* Prompt Cards Grid */}
-                    <div className="grid grind-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         {selectedSubCategory.prompts.map((prompt,index) => (
-                            <div key={index} 
-                                className='relative bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all'>
+                            <div key={index}
+                                className='relative bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all'>
 
                                 {/* Copy and Save buttons */}
-                                <div className='absolute top-4 right-4 flex gap-2'>
+                                <div className='absolute top-3 right-3 sm:top-4 sm:right-4 flex gap-2'>
                                     <button onClick={() => navigator.clipboard.writeText(prompt)} 
                                             className="text-xs px-3 py-1 bg-gray-100 hover:bg-black hover:text-white rounded-full transition-all">
                                         Copy

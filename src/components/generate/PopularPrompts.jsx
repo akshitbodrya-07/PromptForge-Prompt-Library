@@ -6,14 +6,14 @@ const PopularPrompts = ({prompts, onRead}) => {
         {prompts.map((category) => (
             <div key={category.id} className='mb-8'>
                 {/* Category heading */}
-                <h3>{category.emoji} {category.category}</h3>
+                <h3 className='font-semibold text-gray-800 mb-3'>{category.emoji} {category.category}</h3>
 
                 {/* Scrolling row of prompt cards */}
                 <div className='overflow-hidden'>
                     <div className='flex gap-4 animate-scroll'>
                         {[...category.popularPrompts, ...category.popularPrompts].map((prompt,index) => (
                             <div key ={index}
-                                className='flex-shrink-0 bg-white border border-gray-200 rounded-xl p-4 w-72 shadow-sm'
+                                className='flex-shrink-0 bg-white border border-gray-200 rounded-xl p-4 w-60 sm:w-72 shadow-sm'
                             >
                                 <p className='text-sm text-gray-600 mb-3 line-clamp-2'>{prompt}</p>
                                 <button onClick={() => onRead(prompt)}
